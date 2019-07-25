@@ -1,13 +1,11 @@
 import React from "react";
 import { Layout, Button, Card, Icon, Avatar } from "antd";
 
-import { getAssuesLists } from "../../api";
 
 const { Header, Footer, Sider, Content } = Layout;
 const { Meta } = Card;
 
 function App() {
-    console.log(getAssuesLists());
     return (
         <Layout>
             <Header>

@@ -14,7 +14,7 @@ let ajax = (url, data = {}, type = "GET") => {
 
         promise.then(result => {
             message.success('request success')
-            resolve(result)
+            resolve(result.data)
         }).catch(e => {
             message.error('request error'+e.message);
         })

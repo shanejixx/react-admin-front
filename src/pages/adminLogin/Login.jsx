@@ -5,27 +5,40 @@ import logo from "../../assets/img/logo.ico";
 
 import { Form, Icon, Input, Button, message } from "antd";
 import admin from "../../config/admin";
+import { reqLogin } from "../../api";
 import memoryUtils from "../../utils/memoryUtils";
 import storeUtils from "../../utils/storeUtils";
 
 class Login extends React.Component {
     handleSubmit = e => {
         e.preventDefault();
-        this.props.form.validateFields((err, values) => {
+        this.props.form.validateFields(async (err, values) => {
             if (!err) {
                 // console.log("Received values of form: ", values);
                 let { username, password } = values;
-                if (
-                    admin.username === username &&
-                    admin.password === password
-                ) {
-                    message.success("success sign up !");
-                    memoryUtils.user = admin;
-                    storeUtils.saveUser(admin);
+
+                let data = await reqLogin(username, password);
+
+                if (data && data.status === 0) {
+                    message.success("success login!");
+                    memoryUtils.user = { username, password };
+                    storeUtils.saveUser({ username, password });
                     this.props.history.replace("/admin/home");
                 } else {
                     message.error("usernaem or password error");
                 }
+
+                // if (
+                //     admin.username === username &&
+                //     admin.password === password
+                // ) {
+                //     message.success("success sign up !");
+                //     memoryUtils.user = admin;
+                //     storeUtils.saveUser(admin);
+                //     this.props.history.replace("/admin/home");
+                // } else {
+                //     message.error("usernaem or password error");
+                // }
             }
         });
     };
