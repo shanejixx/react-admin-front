@@ -17,7 +17,7 @@ import Tags from '../adminTags'
 import Users from '../adminUsers'
 import Home from '../adminHome'
 
-const { Sider, Content } = Layout;
+const { Sider, Content} = Layout;
 
 export default class Admin extends React.Component {
     render() {
@@ -25,15 +25,22 @@ export default class Admin extends React.Component {
             return <Redirect to="/admin/login" />;
         }
         return (
-            <Layout style={{ height: "100%" }}>
-                <Sider>
+            <Layout>
+                <Sider
+                    style={{
+                        overflow: 'auto',
+                        height: '100vh',
+                        position: 'fixed',
+                        left: 0,
+                    }}>
                     <LeftNav />
                 </Sider>
-                <Layout>
-                    <Header>hello {memoryUtils.user.username}</Header>
-                    <Content style={{ margin: 25,backgroundColor:'white' }}>
+                <Layout style={{ marginLeft: 200 }}>
+                    <Header>hello {memoryUtils.user.username}
+                    </Header>
+                    <Content style={{ margin: 25, marginTop:100,backgroundColor: 'white', overflow: 'initial' }}>
                         <Switch>
-                            
+
                             <Route path='/admin/categories' component={Categories} />
                             <Route path='/admin/charts' component={Charts} />
                             <Route path='/admin/aboutme' component={Me} />
@@ -42,7 +49,7 @@ export default class Admin extends React.Component {
                             <Route path='/admin/tags' component={Tags} />
                             <Route path='/admin/users' component={Users} />
                             <Route path='/admin/home' component={Home} />
-                            <Redirect to={'/admin/home'}/>
+                            <Redirect to={'/admin/home'} />
                         </Switch>
                     </Content>
                     <Footer>Footer</Footer>

@@ -1,44 +1,48 @@
-.header{
+.header {
     background-color: white;
     height: 80px;
-    .header-top{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding-right: 200px;
+    z-index: 999;
+    .header-top {
         height: 40px;
         line-height: 40px;
         border-bottom: 1px solid #000;
         text-align: right;
-        
+
         padding-right: 60px;
     }
-    .header-bottom{
+    .header-bottom {
         height: 40px;
         display: flex;
         align-items: center;
 
         padding-right: 60px;
 
-        .header-bottom-left{
+        .header-bottom-left {
             position: relative;
-            flex:1;
+            flex: 1;
             text-align: center;
-            &::after{
-                content: ' ';
+            &::after {
+                content: " ";
                 position: absolute;
                 border-left: 25px solid transparent;
                 border-right: 25px solid transparent;
-                border-bottom:25px solid transparent;
+                border-bottom: 25px solid transparent;
                 border-top: 25px solid white;
                 left: 50%;
                 top: 100%;
-                transform: translateX(-50%)
-                
+                transform: translateX(-50%);
             }
         }
-        .header-bottom-right{
-            flex:3;
+        .header-bottom-right {
+            flex: 3;
             text-align: right;
             align-items: center;
-            img{
-                margin:0 18px;
+            img {
+                margin: 0 18px;
                 height: 22px;
                 width: 22px;
             }
