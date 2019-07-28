@@ -42,7 +42,11 @@ class Nav extends React.Component {
 	}
 
 	render() {
-		const path = this.props.location.pathname;
+		let path = this.props.location.pathname;
+		console.log(path,typeof path)
+
+		path = '/admin/'+path.split('/')[2];
+
 		return (
 			<div className='left-nav'>
 				<Link to='/admin/home'>
