@@ -15,7 +15,7 @@ import Me from '../adminMe'
 import Posts from '../adminPosts/product'
 import Roles from '../adminRoles/role'
 import Tags from '../adminTags'
-import Users from '../adminUsers'
+import Users from '../adminUsers/user'
 import Home from '../adminHome'
 
 const { Sider, Content} = Layout;
