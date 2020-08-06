@@ -1,17 +1,3 @@
-# reactblog-front
-
-展示：
-
-![login](./record/login.png)
-
-![home](./record/home.png)
-
-![category](./record/category.png)
-
-![user](./record/user.png)
-
-
-
 # 遇到的问题
 
 ## 一，Antd中From的高阶组件
